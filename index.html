@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Importante para responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carta de San Valentín</title>
-  <link rel="stylesheet" href="style.css"> 
+  <!-- Vincula el archivo CSS desde GitHub Pages -->
+  <link rel="stylesheet" href="./style.css">
+  <!-- Scripts de fireworks-js -->
   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
   <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
 </head>
 <body>
-<div class="fireworks"></div> <!-- Contenedor para los fuegos artificiales -->
+<div class="fireworks"></div>
 <div class="envelope-wrapper">
     <div id="envelope" class="close">
         <div class="front flap"></div>
@@ -55,7 +57,7 @@ document.getElementById("open").addEventListener("click", function() {
 
     // Mover el botón de reiniciar
     const resetButton = document.getElementById("reset");
-    resetButton.style.marginTop = "20px"; // Mover el botón hacia abajo
+    resetButton.style.marginTop = "20px";
 
     setTimeout(function() {
         // Iniciar fuegos artificiales
@@ -66,7 +68,15 @@ document.getElementById("open").addEventListener("click", function() {
         // Mostrar la hoja de la carta con animación
         const letter = document.querySelector('.letter');
         letter.style.opacity = "1";
-        letter.style.transform = "translate(-50%, -50%) scale(1)"; /* Centrar y tamaño adecuado */
+        letter.style.transform = "translate(-50%, -50%) scale(1)";
         letter.style.transition = "transform 1s ease, opacity 1s ease";
     }, 1000);
 });
+
+// Función para reiniciar la página
+document.getElementById("reset").addEventListener("click", function() {
+    location.reload();
+});
+</script>
+</body>
+</html>
