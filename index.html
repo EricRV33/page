@@ -6,12 +6,8 @@
   <title>Carta de San Valentín</title>
   <!-- Vincula el archivo CSS desde GitHub Pages -->
   <link rel="stylesheet" href="./style.css">
-  <!-- Scripts de fireworks-js -->
-  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
-  <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
 </head>
 <body>
-<div class="fireworks"></div>
 <div class="envelope-wrapper">
     <div id="envelope" class="close">
         <div class="front flap"></div>
@@ -60,11 +56,6 @@ document.getElementById("open").addEventListener("click", function() {
     resetButton.style.marginTop = "20px";
 
     setTimeout(function() {
-        // Iniciar fuegos artificiales
-        const container = document.querySelector('.fireworks');
-        const fireworks = new Fireworks.default(container);
-        fireworks.start();
-
         // Mostrar la hoja de la carta con animación
         const letter = document.querySelector('.letter');
         letter.style.opacity = "1";
