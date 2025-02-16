@@ -4,8 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carta de San Valentín</title>
-  <!-- Vincula el archivo CSS desde GitHub Pages -->
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Estilos generales */
+    body {
+      background-color: #f7d9da;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    #envelope {
+      margin: 150px auto;
+      position: relative;
+      width: 280px;
+      height: 180px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      background-color: #f9c5c8;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 1s ease, opacity 1s ease;
+      z-index: 2;
+    }
+
+    .letter {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background-color: #f9c5c8;
+      width: 90%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+      opacity: 0;
+      z-index: 3;
+      transition: opacity 1s ease, transform 1s ease;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .open .letter {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .flower {
+      display: block;
+      margin: 10px auto;
+      width: 150px;
+      height: auto;
+    }
+
+    .reset {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .reset button {
+      font-weight: 800;
+      font-style: normal;
+      transition: all 0.1s linear;
+      background-color: transparent;
+      border: solid 2px #ff5757;
+      border-radius: 4px;
+      color: #ff5757;
+      display: inline-block;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 10px;
+      padding: 15px 30px;
+      line-height: 1em;
+      text-decoration: none;
+      min-width: 150px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .reset button:hover {
+      background-color: #fc9d9d;
+      color: #a10000;
+    }
+
+    /* Estilos responsive */
+    @media (max-width: 768px) {
+      .letter {
+        width: 95%;
+        max-width: 300px;
+        padding: 15px;
+      }
+
+      .flower {
+        width: 100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .letter {
+        width: 100%;
+        max-width: 250px;
+        padding: 10px;
+      }
+
+      .flower {
+        width: 80px;
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="envelope-wrapper">
