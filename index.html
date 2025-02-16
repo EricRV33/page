@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      font-family: Arial, sans-serif; /* Restaurar el tipo de letra */
     }
 
     #envelope {
@@ -24,6 +25,31 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       transition: transform 1s ease, opacity 1s ease;
       z-index: 2;
+    }
+
+    .front {
+      position: absolute;
+      width: 0;
+      height: 0;
+      z-index: 3;
+    }
+
+    .flap {
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-bottom: 82px solid transparent;
+      border-top: 98px solid #ff3333;
+      transform-origin: top;
+      pointer-events: none;
+    }
+
+    .pocket {
+      border-left: 140px solid #ff9999;
+      border-right: 140px solid #ff9999;
+      border-bottom: 90px solid #fd8787;
+      border-top: 90px solid transparent;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
     }
 
     .letter {
@@ -41,12 +67,16 @@
       z-index: 3;
       transition: opacity 1s ease, transform 1s ease;
       padding: 20px;
-      overflow-y: auto;
     }
 
     .open .letter {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
+    }
+
+    .open #envelope {
+      transform: translateY(-1000px) rotate(30deg);
+      opacity: 0;
     }
 
     .flower {
@@ -56,9 +86,120 @@
       height: auto;
     }
 
+    .hearts {
+      position: absolute;
+      top: 90px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: 0;
+      right: 10%;
+      pointer-events: none;
+    }
+
+    .heart:before,
+    .heart:after {
+      position: absolute;
+      content: "";
+      left: 50px;
+      top: 0;
+      width: 50px;
+      height: 80px;
+      background: #D00000;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+      pointer-events: none;
+    }
+
+    .heart:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .close .heart {
+      opacity: 0;
+      -webkit-animation: none;
+              animation: none;
+    }
+
+    .a1 {
+      left: 20%;
+      transform: scale(0.6);
+      opacity: 1;
+      -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+      -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      -webkit-animation-delay: 0.7s;
+              animation-delay: 0.7s;
+    }
+
+    .a2 {
+      left: 55%;
+      transform: scale(1);
+      opacity: 1;
+      -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+      -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      -webkit-animation-delay: 0.7s;
+              animation-delay: 0.7s;
+    }
+
+    .a3 {
+      left: 10%;
+      transform: scale(0.8);
+      opacity: 1;
+      -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+      -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      -webkit-animation-delay: 0.7s;
+              animation-delay: 0.7s;
+    }
+
+    @-webkit-keyframes slideUp {
+      0% {
+        top: 0;
+      }
+      100% {
+        top: -600px;
+      }
+    }
+    @keyframes slideUp {
+      0% {
+        top: 0;
+      }
+      100% {
+        top: -600px;
+      }
+    }
+    @-webkit-keyframes sideSway {
+      0% {
+        margin-left: 0px;
+      }
+      100% {
+        margin-left: 50px;
+      }
+    }
+    @keyframes sideSway {
+      0% {
+        margin-left: 0px;
+      }
+      100% {
+        margin-left: 50px;
+      }
+    }
+
     .reset {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 500px; /* Mover el botón más abajo */
     }
 
     .reset button {
@@ -89,26 +230,42 @@
 
     /* Estilos responsive */
     @media (max-width: 768px) {
+      #envelope {
+        margin: 50px auto;
+        top: 100px;
+      }
+
       .letter {
-        width: 95%;
+        width: 80%;
         max-width: 300px;
-        padding: 15px;
       }
 
       .flower {
         width: 100px;
       }
+
+      .reset {
+        margin-top: 400px; /* Ajustar margen para móviles */
+      }
     }
 
     @media (max-width: 480px) {
+      #envelope {
+        margin: 30px auto;
+        top: 80px;
+      }
+
       .letter {
-        width: 100%;
+        width: 90%;
         max-width: 250px;
-        padding: 10px;
       }
 
       .flower {
         width: 80px;
+      }
+
+      .reset {
+        margin-top: 300px; /* Ajustar margen para móviles */
       }
     }
   </style>
